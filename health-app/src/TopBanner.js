@@ -11,7 +11,7 @@ const TopBanner = () => {
     <AppBar position="static">
       <Toolbar sx={{ bgcolor: "#8174A0", display: "flex", justifyContent: "space-between" }}>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          Welcome to Your Dashboard, Nupur
+          Welcome to Your Dashboard, Pranusha
         </Typography>
         
         {/* Button aligned to the right */}
