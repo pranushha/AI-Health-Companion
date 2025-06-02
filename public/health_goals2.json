@@ -1,0 +1,11 @@
+[
+    {
+        "sleep_hours": 7,
+        "exercise_minutes": 30,
+        "calories_consumed": 2200,
+        "stress_level": 3,
+        "water_consumed": 3.0,
+        "healthy_food_servings": 5,
+        "mood": 4
+    }
+]
