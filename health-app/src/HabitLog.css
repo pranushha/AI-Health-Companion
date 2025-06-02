@@ -1,0 +1,97 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #4b2e83
+  }
+  
+  /* Box Styles */
+  .dashboard-container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* Typography */
+  .dashboard-header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #4b2e83;
+  }
+  
+  /* Grid Layouts */
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .grid-item-label {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .grid-item-input {
+    flex-grow: 1;
+  }
+  
+  /* Habit Tracker Table */
+  .habit-tracker {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f8ff;
+  }
+  
+  .habit-tracker .grid-item {
+    margin-bottom: 15px;
+  }
+  
+  /* Journal and Quote Sections */
+  .journal-entry,
+  .quote-section {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fefefe;
+  }
+  
+  .journal-entry textarea {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .quote-section {
+    text-align: center;
+    color: #555;
+    font-style: italic;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .grid-container {
+      flex-direction: column;
+    }
+  
+    .grid-item-label,
+    .grid-item-input {
+      width: 100%;
+    }
+  }
+  

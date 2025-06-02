@@ -3,8 +3,8 @@ import { Card, CardContent, Typography, Table, TableBody, TableCell, TableContai
 
 const mockLeaderboardData = [
   { rank: 1, name: 'You', score: 95 },
-  { rank: 2, name: 'Bob', score: 90 },
-  { rank: 3, name: 'Charlie', score: 85 },
+  { rank: 2, name: 'Nupur', score: 90 },
+  { rank: 3, name: 'Pranusha', score: 85 },
   { rank: 4, name: 'David', score: 80 },
   { rank: 5, name: 'Eve', score: 75 },
   { rank: 6, name: 'U', score: 70 },
@@ -24,8 +24,8 @@ const Leaderboard = () => {
         <TableContainer
           component={Paper}
           sx={{
-            maxHeight: 200, // Limit the height for scrolling
-            overflowY: 'auto', // Make the table vertically scrollable
+            maxHeight: 200, 
+            overflowY: 'auto', 
           }}
         >
           <Table sx={{ minWidth: 200, bgcolor: '#e9e9e3' }}>

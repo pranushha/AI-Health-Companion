@@ -1,48 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
-
-// Your provided JSON data
-const jsonData = [
-  { "user_id": 1, "date": "2025-01-01", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-02", "mood": 2 },
-  { "user_id": 1, "date": "2025-01-03", "mood": 4 },
-  { "user_id": 1, "date": "2025-01-04", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-05", "mood": 2 },
-  { "user_id": 1, "date": "2025-01-06", "mood": 4 },
-  { "user_id": 1, "date": "2025-01-07", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-08", "mood": 4 },
-  { "user_id": 1, "date": "2025-01-09", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-10", "mood": 2 },
-  { "user_id": 1, "date": "2025-01-11", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-12", "mood": 4 },
-  { "user_id": 1, "date": "2025-01-13", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-14", "mood": 2 },
-  { "user_id": 1, "date": "2025-01-15", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-16", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-17", "mood": 4 },
-  { "user_id": 1, "date": "2025-01-18", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-19", "mood": 2 },
-  { "user_id": 1, "date": "2025-01-20", "mood": 3 },
-  { "user_id": 1, "date": "2025-01-21", "mood": 2 },
-];
-
-// Format the data to fit the chart structure
-const moodData = jsonData.map((entry, index) => ({
-  category: entry.date,
-  mood: entry.mood,
-}));
+import axios from 'axios';
 
 const MoodGraph = () => {
+  const [moodData, setMoodData] = useState([]);
+
+  useEffect(() => {
+    // Fetching data from the API
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/habits'); 
+        //mood values to numeric equivalents (good = 4, okay = 3, bad = 2)
+        const formattedData = response.data.map((entry) => ({
+          category: entry.date,
+          mood: entry.mood === 'Good' ? 4 : entry.mood === 'Okay' ? 3 : 2,
+        }));
+        setMoodData(formattedData);
+      } catch (error) {
+        console.error('Error fetching mood data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Card>
       <CardContent>
         <Typography variant="h8" gutterBottom>
-          Mood Over Time
+          Mood Over Time(Good=4, Okay=3, Bad=2)
         </Typography>
-        <BarChart width={700} height={80} data={moodData}>
-          <XAxis sx={{
-    Size: '5px',}} dataKey="category" />
+        <BarChart width={300} height={80} data={moodData}>
+          <XAxis dataKey="category" />
           <YAxis />
           <Tooltip />
           <Legend />

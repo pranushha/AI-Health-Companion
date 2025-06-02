@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { Link } from 'react-router-dom'; // Import Link component from react-router-dom
 
 const LeftNavBar = () => {
   return (
@@ -13,17 +14,23 @@ const LeftNavBar = () => {
       }}
     >
       <Typography variant="h6" sx={{ mb: 2 }}>
-        Dashboard
+        Navigate
       </Typography>
       <List>
-        <ListItem button>
-          <ListItemText primary="Habits" />
+        <ListItem button component={Link} to="/habits">
+          <ListItemText primary="HabitLog" />
+        </ListItem>
+        <ListItem button component={Link} to="/dashboard">
+          <ListItemText primary="Dashboard" />
         </ListItem>
         <ListItem button>
           <ListItemText primary="Journal" />
         </ListItem>
-        <ListItem button>
-          <ListItemText primary="Profile" />
+        <ListItem button component={Link} to="/community">
+          <ListItemText primary="Community" />
+        </ListItem>
+        <ListItem button component={Link} to="/profile">
+          <ListItemText primary="Register" />
         </ListItem>
         <ListItem button>
           <ListItemText primary="Settings" />
